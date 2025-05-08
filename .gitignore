@@ -1,0 +1,21 @@
+# Автогенерируемые папки ROS 2 (colcon)
+build/
+install/
+log/
+
+# Служебные файлы сборки
+**/*.pyc
+**/__pycache__/
+**/*.so
+**/*.o
+**/*.egg-info/
+
+# Файлы IDE и редакторов
+.vscode/
+.idea/
+*.code-workspace
+
+# Временные файлы
+*~
+*.swp
+*.bak
