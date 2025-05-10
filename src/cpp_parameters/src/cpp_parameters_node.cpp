@@ -22,7 +22,7 @@ auto timer_callback = [this](){
     RCLCPP_INFO(this->get_logger(), "Hello %s!", my_param.c_str());
 
     std::vector<rclcpp::Parameter> all_new_parameters{rclcpp::Parameter("my_parameter", "world")};
-    this->set_parameters(all_new_parameters);
+    //this->set_parameters(all_new_parameters);
 };
 timer_ = this->create_wall_timer(1000ms, timer_callback);
 }
