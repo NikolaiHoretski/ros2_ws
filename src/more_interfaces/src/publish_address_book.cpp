@@ -22,7 +22,8 @@ AddressBookPublisher() : Node("address_book_publisher") {
         message.phone_type = message.PHONE_TYPE_MOBILE;
 
         std::cout << "Publising Contact\nFirst:" << message.first_name << 
-        " Last:" << message.last_name << std::endl;
+        " Last:" << message.last_name << " Phone number:" << message.phone_number <<
+        " Phone type:" << static_cast<int>(message.phone_type) << std::endl;
 
         this->address_book_publisher_->publish(message);
     };
