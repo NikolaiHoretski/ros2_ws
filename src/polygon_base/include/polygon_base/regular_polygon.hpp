@@ -1,7 +1,7 @@
-#ifdef POLYGON_BASE_REGULAR_POLYGON_HPP
+#ifndef POLYGON_BASE_REGULAR_POLYGON_HPP
 #define POLYGON_BASE_REGULAR_POLYGON_HPP
 
-namespase polygon_base {
+namespace polygon_base {
 
 class RegularPolygon {
     public:
