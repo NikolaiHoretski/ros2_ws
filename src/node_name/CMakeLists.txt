@@ -12,10 +12,14 @@ find_package(std_msgs REQUIRED)
 find_package(rclcpp_components REQUIRED)
 
 add_executable(simple_node_talker src/simple_node_talker.cpp)
-ament_target_dependencies(simple_node_talker rclcpp)
+ament_target_dependencies(simple_node_talker rclcpp std_msgs)
+
+add_executable(simple_node_listener src/simple_node_listener.cpp)
+ament_target_dependencies(simple_node_listener rclcpp std_msgs)
 
 install(TARGETS
-  simple_node_talker  
+  simple_node_talker
+  simple_node_listener  
   DESTINATION lib/${PROJECT_NAME}
 )
 
