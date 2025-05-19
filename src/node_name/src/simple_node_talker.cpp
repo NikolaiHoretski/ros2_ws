@@ -1,15 +1,19 @@
 #include <memory>
+
+#include "rclcpp_components/register_node_macro.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 
-class SimpleNode : public rclcpp::Node {
+namespace node_name {
+
+class SimpleNodeTalker : public rclcpp::Node {
 
     public:
-    SimpleNode(const std::string & node_name) : Node(node_name), count_(0) {
+    SimpleNodeTalker(const rclcpp::NodeOptions & options) : Node("SimpleNodeTalker", options), count_(0) {
 
         publisher_ = this->create_publisher<std_msgs::msg::String>("chatter", 10);
         timer_ =this->create_wall_timer(std::chrono::seconds(1),
-                                        std::bind(&SimpleNode::timer_callback, this)
+                                        std::bind(&SimpleNodeTalker::timer_callback, this)
         );
     }
 
@@ -24,13 +28,6 @@ class SimpleNode : public rclcpp::Node {
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
 };
-
-int main(int argc, char * argv[]) {
-
-    rclcpp::init(argc, argv);
-    auto node = std::make_shared<SimpleNode>("Simple_Node");
-    rclcpp::spin(node);
-    rclcpp::shutdown();
-
-    return 0;
 }
+
+RCLCPP_COMPONENTS_REGISTER_NODE(node_name::SimpleNodeTalker)
